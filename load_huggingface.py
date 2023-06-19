@@ -1,3 +1,7 @@
 from datasets import load_dataset
-data_link = "https://huggingface.co/datasets/google/fleurs/blob/main/data/cy_gb/dev.tsv"
-dataset = load_dataset("text", data_files=data_link, cache_dir="./huggingface/")
+#data_link = "https://huggingface.co/datasets/google/fleurs/blob/main/data/cy_gb/dev.tsv"
+fleurs_asr = load_dataset("google/fleurs", "cy_gb", cache_dir="./huggingface/")
+print(fleurs_asr)
+
+audio_input = fleurs_asr["train"][0]["audio"]
+transcription = fleurs_asr["train"][0]["transcription"]
